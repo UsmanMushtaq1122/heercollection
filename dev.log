@@ -1,0 +1,119 @@
+
+> heercollection@0.1.0 dev
+> next dev
+
+▲ Next.js 16.3.4 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.1.19:3000
+✓ Ready in 3.7s
+✓ Running next.config.ts took 368ms
+
+○ Compiling / ...
+ GET / 200 in 22.5s (next.js: 20.0s, application-code: 2.5s)
+ GET / 200 in 708ms (next.js: 133ms, application-code: 575ms)
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <RedirectErrorBoundary router={{...}}>
+      <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:{...}, ...}} segmentPath={[...]} ...>
+        <SegmentViewNode type="layout" pagePath="(store)/la...">
+          <SegmentTrieNode>
+          <script>
+          <script>
+          <script>
+          <script>
+          <script>
+          <StoreLayoutWrapper>
+            <StoreLayout>
+              <div className="min-h-scre...">
+                <AnnouncementBar>
+                <Header>
+                <MobileMenu>
+                ...
+                  <section className="py-20 sm:p...">
+                    <div className="mx-auto ma...">
+                      <div className="max-w-2xl ...">
+                        <motion.p>
+                        <motion.h2>
+                        <motion.p>
+                        <motion.form initial={{opacity:0,y:20}} whileInView={{opacity:1,y:0}} viewport={{once:true}} ...>
+                          <form onSubmit={function} className="mt-8 flex ..." style={{opacity:0, ...}} ...>
+                            <div className="flex-1">
+                              <_c type="email" placeholder="Enter your..." className="bg-white/8..." name="email" ...>
+                                <input
+                                  type="email"
+                                  className="flex w-full rounded-sm border px-3 py-2 text-sm text-[#1A1A1A] ring-offse..."
+                                  ref={function ref}
+                                  placeholder="Enter your email"
+                                  name="email"
+                                  onChange={function onChange}
+                                  onBlur={function onChange}
+-                                 style={{caret-color:"transparent"}}
+                                >
+                            ...
+                        ...
+                <Footer>
+                  <footer className="bg-[#1A1A1...">
+                    <div className="border-b b...">
+                      <div className="mx-auto ma...">
+                        <div className="flex flex-...">
+                          <div>
+                          <form onSubmit={function handleSubscribe} className="flex w-ful...">
+                            <_c type="email" placeholder="Enter your..." value="" onChange={function onChange} ...>
+                              <input
+                                type="email"
+                                className="flex h-10 w-full rounded-sm border px-3 py-2 text-sm ring-offset-white file..."
+                                ref={null}
+                                placeholder="Enter your email"
+                                value=""
+                                onChange={function onChange}
+                                required={true}
+-                               style={{caret-color:"transparent"}}
+                              >
+                            ...
+                    ...
+                ...
+      ...
+ 
+○ Compiling /product/[slug] ...
+ GET /category/luxury-pret 200 in 24.5s (next.js: 12.7s, generate-params: 10.6s, application-code: 1230ms)
+ GET /product/noor-embroidered-kameez 200 in 31.7s (next.js: 16.5s, generate-params: 12.8s, application-code: 2.4s)
+○ Compiling /cart ...
+ GET /cart 200 in 6.4s (next.js: 5.8s, application-code: 619ms)
+ GET /checkout 200 in 9.7s (next.js: 8.2s, application-code: 1475ms)
+ GET / 200 in 1095ms (next.js: 248ms, application-code: 847ms)
+ GET /product/noor-embroidered-kameez 200 in 1052ms (next.js: 154ms, generate-params: 39ms, application-code: 859ms)
+[browser] Maximum update depth exceeded. This can happen when a component calls setState inside useEffect, but useEffect either doesn't have a dependency array, or one of the dependencies changes on every render. 
+[browser] Uncaught Error: Maximum update depth exceeded. This can happen when a component repeatedly calls setState inside componentWillUpdate or componentDidUpdate. React limits the number of nested updates to prevent infinite loops.
+    at ProductPage (src\app\(store)\product\[slug]\page.tsx:118:9)
+  116 |
+  117 |         {/* Recently Viewed */}
+> 118 |         <RecentlyViewed currentProductSlug={product.slug} />
+      |         ^
+  119 |       </section>
+  120 |     </>
+  121 |   );
+[browser] The result of getServerSnapshot should be cached to avoid an infinite loop 
+    at RecentlyViewed (src/components/product/RecentlyViewed.tsx:63:40)
+  61 | }: RecentlyViewedProps) {
+  62 |   const isMobile = useMediaQuery("(max-width: 767px)");
+> 63 |   const products = useSyncExternalStore(
+     |                                        ^
+  64 |     subscribe,
+  65 |     () => getSnapshot(currentProductSlug || ""),
+  66 |     getServerSnapshot (src/components/product/RecentlyViewed.tsx:63:40)
+ GET / 200 in 1136ms (next.js: 110ms, application-code: 1026ms)
+ GET / 200 in 1203ms (next.js: 59ms, application-code: 1144ms)
+ GET / 200 in 864ms (next.js: 60ms, application-code: 804ms)
+ GET / 200 in 909ms (next.js: 137ms, application-code: 773ms)
+ GET / 200 in 1009ms (next.js: 24ms, application-code: 985ms)

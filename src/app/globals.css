@@ -1,0 +1,220 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f8f5f2;
+  --foreground: #1a1a1a;
+  --secondary: #e8ddd4;
+  --accent-gold: #c9a27e;
+  --accent-gold-light: #d4b396;
+  --accent-gold-dark: #b8906a;
+
+  /* ── Header height system ────────────────────────────────────────
+     These are the single source of truth for all layout offsets.
+     Update here and everything else adjusts automatically.
+     Mobile navbar: 56px  |  Desktop (md+) navbar: 62px
+     Announcement bar:  36px  (h-9 in AnnouncementBar.tsx)
+  ─────────────────────────────────────────────────────────────── */
+  --announcement-h: 36px;
+  --navbar-h: 56px;
+  --header-h: calc(var(--announcement-h) + var(--navbar-h)); /* 92px mobile */
+}
+
+/* On md+ screens the navbar is 62px */
+@media (min-width: 768px) {
+  :root {
+    --navbar-h: 62px;
+    /* --header-h auto-updates: 98px desktop */
+  }
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-secondary: var(--secondary);
+  --color-accent-gold: var(--accent-gold);
+  --color-accent-gold-light: var(--accent-gold-light);
+  --color-accent-gold-dark: var(--accent-gold-dark);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-cormorant), "Times New Roman", serif;
+  --font-cinzel: var(--font-cinzel), serif;
+  --font-montserrat: var(--font-montserrat), sans-serif;
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+  --animate-fade-in: fade-in 0.5s ease-out;
+  --animate-fade-up: fade-up 0.6s ease-out;
+  --animate-slide-in-left: slide-in-left 0.4s ease-out;
+  --animate-slide-in-right: slide-in-right 0.4s ease-out;
+
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slide-in-left {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slide-in-right {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+}
+
+@keyframes shimmer {
+  from {
+    translate: -100% 0;
+  }
+  to {
+    translate: 100% 0;
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes pulse-gold {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.whatsapp-float {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 30;
+}
+
+@media (max-width: 767px) {
+  .whatsapp-float {
+    right: 18px;
+    bottom: calc(18px + 5.75rem + env(safe-area-inset-bottom));
+  }
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  background-color: var(--accent-gold);
+  color: white;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--secondary);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-gold);
+}
+
+.luxury-gradient {
+  background: linear-gradient(135deg, var(--background) 0%, var(--secondary) 100%);
+}
+
+.gold-gradient {
+  background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-gold-light) 100%);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-gold-dark) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.editorial-shadow {
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+}
+
+.luxury-border {
+  border: 1px solid rgba(201, 162, 126, 0.2);
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+.animate-pulse-gold {
+  animation: pulse-gold 2s ease-in-out infinite;
+}
+
+/* ── Hero pull-up ────────────────────────────────────────────────
+   Applied to the homepage Hero so it visually starts at the very
+   top of the viewport (overlaying the fixed navbar), while the
+   shared layout still provides the correct offset for every other
+   page.  Negative margin exactly cancels the layout padding-top.
+────────────────────────────────────────────────────────────────── */
+.hero-pull-up {
+  margin-top: calc(-1 * var(--header-h));
+}
