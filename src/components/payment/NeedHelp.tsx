@@ -2,13 +2,26 @@
 
 import Link from "next/link";
 import { MessageSquare, Mail, ContactRound, ArrowRight } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Reveal from "./Reveal";
 import SectionHeading from "./SectionHeading";
 import { useSiteSettings } from "@/hooks/useSettings";
 import { findSocialLink } from "@/components/common/SocialIcon";
 
-const SUPPORT_OPTIONS = [
+type SupportOption = {
+  icon: LucideIcon;
+  label: string;
+  description: string;
+  platform?: string;
+  href?: string;
+  external: boolean;
+  cta: string;
+};
+
+type ResolvedSupportOption = SupportOption & { href: string };
+
+const SUPPORT_OPTIONS: SupportOption[] = [
   {
     icon: MessageSquare,
     label: "WhatsApp Support",
@@ -38,11 +51,11 @@ const SUPPORT_OPTIONS = [
 export default function NeedHelp() {
   const { settings } = useSiteSettings();
   const whatsapp = findSocialLink(settings.socialLinks, "WhatsApp");
-  const supportOptions = SUPPORT_OPTIONS.flatMap((option) => {
+  const supportOptions = SUPPORT_OPTIONS.flatMap<ResolvedSupportOption>((option) => {
     if (option.platform === "WhatsApp") {
       return whatsapp ? [{ ...option, href: whatsapp.url }] : [];
     }
-    return [option];
+    return option.href ? [option] : [];
   });
 
   return (
