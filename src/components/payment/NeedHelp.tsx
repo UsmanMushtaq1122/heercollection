@@ -55,7 +55,8 @@ export default function NeedHelp() {
     if (option.platform === "WhatsApp") {
       return whatsapp ? [{ ...option, href: whatsapp.url }] : [];
     }
-    return option.href ? [option] : [];
+    const href = option.href;
+    return href ? [{ ...option, href }] : [];
   });
 
   return (
