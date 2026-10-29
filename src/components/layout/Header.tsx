@@ -186,12 +186,12 @@ export default function Header() {
               aria-label="Heer Collection — home"
             >
               <Image
-                src="/heer-wordmark.png"
+                src="/heer-logo.png"
                 alt="Heer Collection"
-                width={487}
-                height={170}
+                width={490}
+                height={480}
                 priority
-                className="h-auto w-[100px] sm:w-[128px] md:w-[146px] transition-transform duration-300 group-hover:scale-[1.03]"
+                className="h-10 w-auto sm:h-12 md:h-14 transition-transform duration-300 group-hover:scale-[1.03]"
               />
             </Link>
           </div>
