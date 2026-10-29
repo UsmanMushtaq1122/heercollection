@@ -31,16 +31,15 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://heercollection.store"),
   title: {
     default: "Heer Collection | Premium Luxury Women's Fashion",
     template: "%s | Heer Collection",
   },
   description:
     "Discover exquisite luxury women's fashion at Heer Collection. Premium pret, formal wear, and summer collections crafted with timeless elegance.",
-  icons: {
-    icon: "/heer-logo.png",
-    shortcut: "/heer-logo.png",
-    apple: "/heer-logo.png",
+  alternates: {
+    canonical: "/",
   },
   keywords: [
     "luxury fashion",
