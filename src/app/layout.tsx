@@ -37,6 +37,11 @@ export const metadata: Metadata = {
   },
   description:
     "Discover exquisite luxury women's fashion at Heer Collection. Premium pret, formal wear, and summer collections crafted with timeless elegance.",
+  icons: {
+    icon: "/heer-logo.png",
+    shortcut: "/heer-logo.png",
+    apple: "/heer-logo.png",
+  },
   keywords: [
     "luxury fashion",
     "women's clothing",
