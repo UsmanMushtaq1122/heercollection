@@ -160,8 +160,8 @@ export default function Footer() {
             <Image
               src="/heer-logo.png"
               alt={`${displayName} logo`}
-              width={491}
-              height={593}
+              width={768}
+              height={768}
               style={{ width: "120px", height: "auto" }}
             />
           </Link>

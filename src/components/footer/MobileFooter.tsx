@@ -94,8 +94,8 @@ export default function MobileFooter() {
           <Image
             src="/heer-logo.png"
             alt={`${displayName} logo`}
-            width={491}
-            height={593}
+            width={768}
+            height={768}
             className="h-auto w-[76px]"
           />
         </Link>

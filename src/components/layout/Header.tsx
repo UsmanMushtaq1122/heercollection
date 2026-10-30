@@ -188,8 +188,8 @@ export default function Header() {
               <Image
                 src="/heer-logo.png"
                 alt="Heer Collection"
-                width={490}
-                height={480}
+                width={768}
+                height={768}
                 priority
                 className="h-10 w-auto sm:h-12 md:h-14 transition-transform duration-300 group-hover:scale-[1.03]"
               />
