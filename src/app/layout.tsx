@@ -37,11 +37,19 @@ export const metadata: Metadata = {
   },
   description:
     "Discover exquisite luxury women's fashion at Heer Collection. Premium pret, formal wear, and summer collections crafted with timeless elegance.",
+  metadataBase: new URL("https://heercollection.store"),
   icons: {
-    icon: "/heer-logo.png",
-    shortcut: "/heer-logo.png",
-    apple: "/heer-logo.png",
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon.png", type: "image/png", sizes: "48x48" },
+      { url: "/icon.png", type: "image/png", sizes: "512x512" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
   },
+  manifest: "/site.webmanifest",
   keywords: [
     "luxury fashion",
     "women's clothing",
